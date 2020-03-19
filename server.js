@@ -1,6 +1,6 @@
 const express = require('express');
 const graphqlHTTP = require('express-graphql');
-//const cors = require('cors');
+const cors = require('cors');
 const schema = require('./schema');
 const mongoose = require('mongoose');
 
@@ -20,7 +20,7 @@ mongoose.connection.once('open', () => {
     console.log('connected to database');
 });
 */
-//app.use(cors());
+app.use(cors());
 
 //Middleware ruta
 app.use('/graphql', graphqlHTTP({
