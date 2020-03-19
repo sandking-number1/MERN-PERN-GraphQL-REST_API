@@ -1,5 +1,5 @@
 const express = require('express');
-//const cors = require('cors');
+const cors = require('cors');
 const mongoose = require('mongoose');
 
 const app = express();
@@ -17,7 +17,7 @@ mongoose.connection.once('open', () => {
     console.log('connected to database');
 });
 
-//app.use(cors());
+app.use(cors());
 app.use(express.json());
 
 //Routes
@@ -32,3 +32,6 @@ app.use('/users', usersRouter);
 const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`));
+
+//Nodemon limit watchers solution
+//sudo sysctl fs.inotify.max_user_watches=582222 && sudo sysctl -p 
