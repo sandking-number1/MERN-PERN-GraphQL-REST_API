@@ -44,7 +44,41 @@ export default class CreateUser extends Component {
     this.setState({
       username: ''
     })
+    //Get
+    fetch('http://localhost:4000/pusers')
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .catch( err => console.error(err.message));
 
+    //Metodo Delete
+    const deleteUser = async id => {
+      try {
+        const deleteUser = await fetch(`http://localhost:4000/users/${id}`, {
+          method: 'DELETE'
+        });
+
+        console.log(deleteUser);
+      } catch (err){
+        console.error(err.message);
+      }
+    }
+    
+    //Edit
+    const updateUser = async e => {
+      e.preventDefault();
+      try {
+        const response = await fetch(`http://localhost:4000/users/${user.id}`,{
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(user)
+        });
+
+        //console.log(response);
+        //window.location = '/';
+      } catch (err) {
+        console.error(err.message);
+      }
+    }
   }
 
   render() {
