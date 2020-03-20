@@ -16,7 +16,7 @@ mongoose.connect(uri, {
 })
     .then(db => console.log('connected to database'))
     .catch(err => console.log(err));
-
+    
 /*    
 mongoose.connection.once('open', () => {
     console.log('connected to database');

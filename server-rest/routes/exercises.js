@@ -1,3 +1,5 @@
+//Routes y controladores(req, res), se puede separar 
+
 const router = require('express').Router();
 let Exercise = require('../models/exercise.model');
 
@@ -7,7 +9,7 @@ router.route('/').get((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/add').post((req, res) => {
+router.route('/add').post((req, res) => {  // '/'
     const username = req.body.username;
     const description = req.body.description;
     const duration = Number(req.body.duration);

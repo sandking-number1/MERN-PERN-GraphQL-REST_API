@@ -19,7 +19,7 @@ export default class CreateUser extends Component {
     })
   }
 
-  onSubmit(e) {
+  onSubmit(e) {  //async e 
     e.preventDefault();
 
     const user = {
@@ -30,10 +30,21 @@ export default class CreateUser extends Component {
 
     axios.post('http://localhost:4000/users/add', user)
       .then(res => console.log(res.data));
+      
+    //Postgresql consumir API REST
+
+    //const body = { this.state.username };
+    fetch('http://localhost:4000/users', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(user)
+    }).then(response => console.log(response))
+      .catch(err => console.log(err));
 
     this.setState({
       username: ''
     })
+
   }
 
   render() {
