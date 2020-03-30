@@ -8,4 +8,8 @@ const pool = new Pool({
     database: 'graph'
 });
 
+pool.connect()
+    .then(db => console.log('connected to database PostgreSql'))
+    .catch(err => console.error(err));
+
 module.exports = pool;
