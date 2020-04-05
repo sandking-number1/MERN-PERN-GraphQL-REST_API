@@ -10,7 +10,14 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {  //puede ser sin el /add post y get /
-    const { username } = req.body;  
+    const { username } = req.body; 
+
+    /*
+    const newUser = new User({
+    	_id: new mongoose.Types.ObjectId(), 
+    	email: req.body.email,
+    	password: req.body.password	
+    });*/
 
     const newUser = new User({username});
 
