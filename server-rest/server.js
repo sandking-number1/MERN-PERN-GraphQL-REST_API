@@ -23,6 +23,11 @@ app.use('/api/v1/users', usersPostgresRouter);
 
 //Static files
 app.use(express.static(path.join(__dirname, 'public')));
+/* Otra forma de enviar archivos desde el servidor*/
+//app.use('/public',express.static(path.join(__dirname, 'static')));
+//app.get('/', (req, res) => {
+//    res.sendFile(path.join(__dirname, 'static', 'index.html'));
+//});
 
 //app.set('port', process.env.PORT || 4000);  //5000
 //app.listen(app.get('port'), () => console.log('Server started on ',app.get('port'));
